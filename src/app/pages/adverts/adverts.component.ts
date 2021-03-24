@@ -2,14 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { AdvertService } from 'src/app/services/advert-service/advert.service';
 import { ApiService } from 'src/app/services/api-service/api.service';
 
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import { AppComponent } from 'src/app/app.component';
+
 @Component({
   selector: 'app-adverts',
   templateUrl: './adverts.component.html',
   styleUrls: ['./adverts.component.scss']
 })
 export class AdvertsComponent implements OnInit {
+  faPlus = faPlus;
   public adverts: any = [];
-  constructor(public advertService: AdvertService, public api: ApiService) { 
+  constructor(public advertService: AdvertService, public api: ApiService, public app: AppComponent) { 
     let that = this;
     this.advertService.getAllAdverts((data: any)=>{
 

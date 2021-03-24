@@ -39,3 +39,10 @@ app-home-page{
     height: calc(100vh - 80px);
     display: block;
 }
+
+app-my-ads{
+    min-height: calc(100vh - 80px);
+    display: block;
+    padding: 10px;
+    background: $white;
+}

@@ -12,6 +12,9 @@ import { AppProvider } from './app.init.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HeaderComponent } from './widgets/header/header.component';
 import { MyAdsComponent } from './pages/my-ads/my-ads.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddAdvertsComponent } from './widgets/add-adverts/add-adverts.component';
+
 
 export function userProvider(provider: AppProvider) {
   return () => provider.load();
@@ -26,12 +29,14 @@ export function userProvider(provider: AppProvider) {
     AdvertPageComponent,
     HomePageComponent,
     HeaderComponent,
-    MyAdsComponent
+    MyAdsComponent,
+    AddAdvertsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: userProvider, deps: [AppProvider], multi: true },

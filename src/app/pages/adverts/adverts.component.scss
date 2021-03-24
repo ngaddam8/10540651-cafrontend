@@ -14,8 +14,9 @@
             display: inline-block;
             float: left;
             background-color: $midnightGreen;
-            background-size: cover !important;
+            background-size: contain !important;
             background-repeat: no-repeat !important;
+            background-position: center !important;
         }
 
         .adDetails{
@@ -54,5 +55,22 @@
                 }
             }
         }
+    }
+}
+
+.addAdverts{
+    position: fixed;
+    height: 54px;
+    width: 54px;
+    background: $midnightGreen;
+    border-radius: 50%;
+    color: $white;
+    text-align: center;
+    line-height: 54px;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    fa-icon{
+        font-size: 32px;
     }
 }

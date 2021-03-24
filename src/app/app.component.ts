@@ -30,4 +30,18 @@ export class AppComponent {
   navigateToUrl(url: string){
     this.router.navigate([url]);
   }
+
+  closeModal(){
+    $('.modalBackDrop').addClass("dNone");
+    $('.modalSection .modalTitle').text("");
+    $('.modalSection').removeClass("open");
+    this.router.navigate([{outlets: {modal: null} , replaceUrl: false }]);
+  }
+
+  openModal(page:any, title:string){
+    $('.modalBackDrop').removeClass("dNone");
+    $('.modalSection .modalTitle').text(title);
+    $('.modalSection').addClass("open");
+    this.router.navigate([{outlets: {modal: page} , replaceUrl: false }]);
+  }
 }

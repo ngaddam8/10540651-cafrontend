@@ -13,4 +13,17 @@ export class AdvertService {
       callback(data);
     });
   }
+
+  getMyAdverts(id: string, callback: any){
+    this.api.serverCall("GET", "/api/myAdverts/"+id, {}, (data: any)=>{
+      callback(data);
+    });
+  }
+
+  createAd(title: string, description: string, author: string, featuredImage:string ,callback: any){
+    let date = new Date();
+    this.api.serverCall("POST", "/api/createAd", {title: title, description: description, featuredImage: featuredImage, author: author, lastUpdated: date, dateCreated: date }, (data: any)=>{
+      callback(data);
+    });
+  }
 }
