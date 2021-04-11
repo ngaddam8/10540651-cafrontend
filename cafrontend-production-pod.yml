@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cafrontend-production
+spec:
+  selector:
+    matchLabels:
+      deployment-name: cafrontend-production
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        deployment-name: cafrontend-production
+    spec:
+      containers:
+        - name: cafrontend-production-container
+          image: naveen10540651/cafrontend-production-image:v1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service-label: cafrontend-production-cluster-service
+  name: cafrontend-production-cluster-service
+spec:
+  type: ClusterIP
+  ports:
+  - name: cafrontend-production-cluster-service-port
+    port: 80
+    protocol: TCP
+  selector:
+    deployment-name: cafrontend-production
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service-label: cafrontend-production-cluster-service 
+  name: cafrontend-production-cluster-service-loadbalancer
+spec:
+  type: LoadBalancer
+  ports:
+  - name: load-balancer-production-service-port
+    port: 80
+    protocol: TCP
+  selector:
+    deployment-name: cafrontend-production
