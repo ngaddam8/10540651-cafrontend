@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cafrontend-production
+  name: 10540651-cafrontend-production
 spec:
   selector:
     matchLabels:
-      deployment-name: cafrontend-production
+      deployment-name: 10540651-cafrontend-production
   replicas: 1
   template:
     metadata:
       labels:
-        deployment-name: cafrontend-production
+        deployment-name: 10540651-cafrontend-production
     spec:
       containers:
         - name: cafrontend-production-container
@@ -32,7 +32,7 @@ spec:
     port: 80
     protocol: TCP
   selector:
-    deployment-name: cafrontend-production
+    deployment-name: 10540651-cafrontend-production
 ---
 apiVersion: v1
 kind: Service
@@ -47,4 +47,4 @@ spec:
     port: 80
     protocol: TCP
   selector:
-    deployment-name: cafrontend-production
+    deployment-name: 10540651-cafrontend-production
